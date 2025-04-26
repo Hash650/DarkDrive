@@ -13,7 +13,7 @@ const LoginPage = () => {
 		<section className='flex flex-col gap-4 items-center justify-center py-16 mt-24'>
 			{signUp ? (
 				<>
-					<SignUpPage />
+					<SignUpPage setSignUp={setSignUp} />
 					<span className='flex gap-1 pt-6'>
 						<p>Already Registered?</p>
 						<button

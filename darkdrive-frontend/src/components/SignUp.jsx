@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signupUser } from "../api/auth";
 import VerificationModal from "./VerificationModal";
 
-const SignUpPage = () => {
+const SignUpPage = ({ setSignUp }) => {
 	const [showModal, setShowModal] = useState(false);
 	const [formData, setFormData] = useState({
 		username: "",
@@ -12,6 +12,11 @@ const SignUpPage = () => {
 	});
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
+
+	const closeModal = () => {
+		setShowModal(false);
+		setSignUp(false);
+	};
 
 	const handleChange = (e) => {
 		setFormData({
@@ -69,8 +74,8 @@ const SignUpPage = () => {
 	return (
 		<>
 			<form
-				className={`flex flex-col gap-8 bg-primary/40 backdrop-blur-sm p-8 rounded-xl w-[90%] max-w-[425px] border-[1px] border-white/40 ${
-					showModal && "blur-2xl"
+				className={`flex flex-col gap-8 bg-primary/40 p-8 rounded-xl w-[90%] max-w-[425px] border-[1px] border-white/40 ${
+					showModal && "blur-lg"
 				}`}
 				onSubmit={handleSubmit}
 			>
@@ -144,7 +149,7 @@ const SignUpPage = () => {
 					{loading ? "Signing up..." : "Sign Up"}
 				</button>
 			</form>
-			{showModal && <VerificationModal />}
+			{showModal && <VerificationModal onClick={closeModal} />}
 		</>
 	);
 };

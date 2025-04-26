@@ -6,17 +6,10 @@ import Card from "../components/Card";
 const Home = () => {
 	return (
 		<>
-			<span
-				style={{
-					backgroundImage: `linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(${LandingImage})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-				}}
-				className='grid lg:grid-cols-2 p-8 lg:gap-32 sm:px-16 bg-cover bg-center items-center mt-22'
-			>
-				<div className='flex flex-col items-center justify-center gap-8 bg-white/10 backdrop-blur-sm p-8 sm:p-16 text-center rounded-lg'>
-					<h1 className='font-display text-background'>Welcome To DarkDrive</h1>
-					<h2 className='text-background'>
+			<span className='grid lg:grid-cols-[60%_40%] bg-primary items-center mt-22'>
+				<div className='flex flex-col items-center justify-center gap-8 backdrop-blur-sm p-8 sm:p-16 text-center rounded-lg'>
+					<h1 className='font-display text-white/90'>Welcome To DarkDrive</h1>
+					<h2 className='text-white/90'>
 						Your Files. Your Rules. With end-to-end encryption built in, your files are locked
 						down—only you hold the key. Whether you're storing personal documents or sensitive data,
 						DarkDrive keeps it private, secure, and accessible only to you.
@@ -25,21 +18,37 @@ const Home = () => {
 						<button>Secure Your Files Now</button>
 					</Link>
 				</div>
-				<img src={Mockup} className='hidden sm:block' />
+				<div
+					style={{
+						backgroundImage: `linear-gradient(to bottom right, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(${LandingImage})`,
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+					}}
+					className='flex items-center justify-center'
+				>
+					<img src={Mockup} className='hidden sm:block max-w-[70%]' />
+				</div>
 			</span>
 			<section className='grid lg:grid-cols-2 items-center justify-center gap-8 py-8'>
 				<aside className='flex flex-col items-center justify-center p-8'>
 					<div className='flex flex-col gap-8 rounded-3xl p-4 backdrop-blur-sm'>
 						<h1 className='text-accent'>What is DarkDrive?</h1>
 						<p className='text-sm md:text-base lg:text-lg'>
-							DarkDrive is a decentralized file-sharing system that lets you upload and download
-							files securely across a peer-to-peer network. With no central servers, it’s resilient,
-							private, and nearly impossible to take down. Share and access files freely—without
-							restrictions or censorship. <br />
+							At DarkDrive, we believe secure file sharing should be simple, fast, and truly
+							private. Your files are encrypted on your device before they ever reach our servers —
+							meaning even though we store them, we can never read, access, or expose your data.
+							Only you and the people you choose have the keys to decrypt your files.
 							<br />
-							DarkDrive is built for speed, security, and complete freedom. With end-to-end
-							encryption and a distributed network, your files stay safe and accessible anytime. No
-							limits, no gatekeepers—just pure, decentralized sharing
+							<br />
+							Create an account to manage your uploads, track your file history, and customize
+							security settings like passwords or file expiration times.
+							<br />
+							We don’t collect sensitive information, and we never compromise on encryption — your
+							privacy stays fully under your control.
+							<br />
+							<br />
+							Whether you're sharing important documents, creative projects, or personal files,
+							DarkDrive keeps your data safe, private, and in your hands.
 						</p>
 					</div>
 				</aside>

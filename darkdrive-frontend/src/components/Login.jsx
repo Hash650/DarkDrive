@@ -51,6 +51,7 @@ const LoginPage = () => {
 					value={formData.email}
 					onChange={handleChange}
 					required
+					className='p-2 rounded bg-gray-800 text-white border border-gray-600'
 				/>
 			</span>
 			<span className='flex flex-col gap-2'>
@@ -62,10 +63,11 @@ const LoginPage = () => {
 					value={formData.password}
 					onChange={handleChange}
 					required
+					className='p-2 rounded bg-gray-800 text-white border border-gray-600'
 				/>
 			</span>
 			{error && <p className='text-red-500 text-sm'>{error}</p>}
-			<button type='submit' disabled={loading}>
+			<button type='submit' className={loading ? "loading-glimmer" : ""}>
 				{loading ? "Logging in..." : "Login"}
 			</button>
 		</form>
