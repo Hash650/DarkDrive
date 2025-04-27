@@ -7,6 +7,7 @@ import com.darkdrive.backend.service.AuthService;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/auth")
 public class AuthController {
 
+    @Value("${frontend.url}")
+    private String frontendUrl;
+    
     @Autowired
     private AuthService authService;
 
@@ -23,7 +27,7 @@ public class AuthController {
             @RequestParam String token) {
         if (authService.verify(token)) {
             return ResponseEntity.status(HttpStatus.FOUND)
-                    .location(URI.create("http://localhost:5173/")) // hardcoded
+                    .location(URI.create(frontendUrl)) // hardcoded
                     .build();
         }
 
