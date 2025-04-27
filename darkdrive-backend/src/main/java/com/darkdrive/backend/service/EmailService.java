@@ -15,6 +15,9 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String senderEmail;
 
+    @Value("${spring.backendUrl}")
+    private String backendUrl;
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -23,7 +26,7 @@ public class EmailService {
         MimeMessageHelper helper = new MimeMessageHelper(message, true); // 'true' enables HTML
 
         String subject = "Verify Your Dark Drive Account";
-        String verificationUrl = "https://dark-drive-backend.onrender.com/auth/verify?token=" + token;
+        String verificationUrl = backendUrl+"/auth/verify?token=" + token;
         String htmlContent = """
             <!DOCTYPE html>
             <html>
